@@ -18,6 +18,9 @@ When you click the **Knit** button a document will be generated that includes bo
 ```{r setup, include=FALSE}
 library(reticulate)
 use_python("/anaconda3/bin/python")
+py_config()
+py_available()
+py_module_available("pandas")
 ```
 
 ## Including Plots
@@ -29,6 +32,46 @@ import pandas as pd
 anscombe=pd.read_csv("https://vincentarelbundock.github.io/Rdatasets/csv/datasets/anscombe.csv")
 print(anscombe)
 
+
+
+
+```
+```{python}
+import pandas as pd
+import os as os
+
+print(dir(pd)) # functions of pandas
+
+a=os.getcwd()
+print(os.listdir(a))
+
+sample=pd.read_csv("sample.csv")
+print(sample[0:10])
+
+print(sample.columns)
+print(sample.info())
+
+names=["1","2","3"]
+print(sample.head(30))
+sample.columns[0:3]=names
+```
+
+```{python}
+from bs4 import BeautifulSoup
+import urllib.request
+
+r=urllib.request.urlopen("https://www.yelp.ca/search?find_loc=Calgary,+AB&cflt=homeservices").read()
+soup=BeautifulSoup(r,"lxml")
+print(type(soup))
+
+# find the number of characters
+print(len(str(soup.prettify())))
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+library(reticulate)
+
+
+```
+
