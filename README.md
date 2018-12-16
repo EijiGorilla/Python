@@ -21,13 +21,13 @@ https://www.e-education.psu.edu/geog485/node/17
 1. Print a list of feature datasets and feature classes
 -----------------
     import arcpy
-    arcpy.env.workspace="C:/gis03/ex01/ex01.gdb"  
-    dataset=arcpy.ListDatasets("*","Feature")
-    for data in dataset:
-        print("Feature datasets: "+data)
-        fcList=arcpy.ListFeatureClasses("*","",data)
-        for fc in fcList:
-            print(fc)
+        arcpy.env.workspace="C:/gis03/ex01/ex01.gdb"  
+        dataset=arcpy.ListDatasets("*","Feature")
+        for data in dataset:
+            print("Feature datasets: "+data)
+            fcList=arcpy.ListFeatureClasses("*","",data)
+            for fc in fcList:
+                print(fc)
 -----------------------
 
 2. Print a list of field names of a feature class
