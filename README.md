@@ -18,20 +18,23 @@ https://campus.datacamp.com/courses/intro-to-python-for-data-science/chapter-1-p
 https://www.e-education.psu.edu/geog485/node/17
 
 ## Useful Sample Codes for arcpy
-Print a list of feature datasets and feature classes
-
+1. Print a list of feature datasets and feature classes
+-----------------
 import arcpy
-    arcpy.env.workspace="C:/gis03/ex01/ex01.gdb"   
+    arcpy.env.workspace="C:/gis03/ex01/ex01.gdb" 
+    
     dataset=arcpy.ListDatasets("*","Feature")
     for data in dataset:
         print("Feature datasets: "+data)
         fcList=arcpy.ListFeatureClasses("*","",data)
         for fc in fcList:
             print(fc)
+-----------------------
 
 2. Print a list of field names of a feature class
+--------------------
     fc="watergate"
     field_names=[f.name for f in arcpy.ListFields(fc)]
     print("field names is {0}".format(field_names))
-
+--------------------
 
