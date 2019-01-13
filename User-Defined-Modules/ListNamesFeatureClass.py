@@ -30,5 +30,6 @@ def listFeatureClassNames(location):
         
 # 2. List of field names of a feature class
 def listFieldNames(table):
+    import arcpy
     fieldNames=[f.name for f in arcpy.ListFields(table)]
     return fieldNames
