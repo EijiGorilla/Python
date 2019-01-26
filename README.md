@@ -18,6 +18,52 @@ https://campus.datacamp.com/courses/intro-to-python-for-data-science/chapter-1-p
 https://www.e-education.psu.edu/geog485/node/17
 * Lesson3 Project datasets are stored in "Project3" folder. My script for the Project is saved "project3.py".
 
+## Useful Python Code
+---------------------------------------------------------
+import arcpy
+import ListNamesFeatureClass
+
+try:
+    arcpy.env.workspace="C:/Users/oc3512/Documents/ArcGIS/Projects/Python_practice/output"
+    arcpy.env.overwright=True
+    
+    # open gdb
+    inFiles="C:/Users/oc3512/Documents/ArcGIS/Projects/Python_practice/USA.gdb"
+    
+    # check what feature class in the gdb file
+    featureClass=ListNamesFeatureClass.listFeatureClassNames(inFiles)
+    boundaries="Boundaries"
+    
+    # Make a feature layer
+    arcpy.MakeFeatureLayer_management(boundaries,"testBoundary")
+    
+    # Copy (i.e., generate and save) as a new feature class (you cannot manipulate field with a feature layer)
+    arcpy.CopyFeatures_management("testBoundary","NewBoundary")
+    
+    # Add Field
+    arcpy.AddField_management("allBoundary", "ref_ID", "TEXT", "", "", "", "refID", "NULLABLE", "REQUIRED")
+    
+    # Set Local variables
+    inTable="newBoundary"
+    fieldName="ref_ID"
+    expression="reclass(!Shape_Area!,!ref_ID!)"
+    
+    codeblock="""
+    def reclass(Area,ID):
+        if Area > 250:
+            c="A"
+        else:
+            c="B"
+        return c"""
+    
+    # Execute CalculateField
+    arcpy.CalculateField_management(inTable,fieldName,expression,"PYTHON3",codeblock)
+
+except:
+    arcpy.GetMessage()
+    
+arcpy.Delete_management("allBoundary")
+---------------------------------------------------------
 
 ## Map Documents for ArcGIS Pro
 * Tutorial
