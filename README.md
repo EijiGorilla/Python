@@ -19,8 +19,9 @@ https://www.e-education.psu.edu/geog485/node/17
 * Lesson3 Project datasets are stored in "Project3" folder. My script for the Project is saved "project3.py".
 
 ## Useful Python Code
+1. Update Filed in the Attribute Table 
 ---------------------------------------------------------
- 1. Update Filed in the Attribute Table   
+  
     import arcpy
     import ListNamesFeatureClass
 
