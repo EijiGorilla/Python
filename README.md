@@ -20,6 +20,7 @@ https://www.e-education.psu.edu/geog485/node/17
 
 ## Useful Python Code
 ---------------------------------------------------------
+ 1. Update Filed in the Attribute Table   
     import arcpy
     import ListNamesFeatureClass
 
