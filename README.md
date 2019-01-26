@@ -20,22 +20,34 @@ https://www.e-education.psu.edu/geog485/node/17
 ## Useful Sample Codes for arcpy
 1. Print a list of feature datasets and feature classes
 -----------------
+# 1. List of Feature class datasets and feature classes
+## Note that featureclass datasets are only available for geodatabase
+def listFeatureClassDatasetNames(gdb):
     import arcpy
-        arcpy.env.workspace="C:/gis03/ex01/ex01.gdb"  
-        dataset=arcpy.ListDatasets("*","Feature")
-        for data in dataset:
-            print("Feature datasets: "+data)
-            fcList=arcpy.ListFeatureClasses("*","",data)
-            for fc in fcList:
-                print(fc)
------------------------
+    arcpy.env.workspace=gdb
+    datasets=arcpy.ListDatasets("*","Feature")
+    
+    for data in datasets:
+        return data
+        fcList=arcpy.ListFeatureClasses(data)
+        for fc in fcList:
+            return fc
 
-2. Print a list of field names of a feature class
---------------------
-    fc="watergate"
-    field_names=[f.name for f in arcpy.ListFields(fc)]
-    print("field names is {0}".format(field_names))
---------------------
+# List of feature class 
+## note location can be a folder or geodatabase (.gdb) 
+def listFeatureClassNames(location):
+    import arcpy
+    arcpy.env.workspace=location
+    fcList=arcpy.ListFeatureClasses()
+    for fc in fcList:
+        return fc
+        
+# 2. List of field names of a feature class
+def listFieldNames(table):
+    import arcpy
+    fieldNames=[f.name for f in arcpy.ListFields(table)]
+    return fieldNames
+-----------------------
 
 ## Map Documents for ArcGIS Pro
 * Tutorial
