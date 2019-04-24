@@ -9,7 +9,7 @@
 Use Spyder in Anaconda when coding for ArcGIS so you can code arcpy in Spyder
 Read the followings for environmental settings
 * Go to Python setting in ArcGIS Pro
-* Create new environment (the new environment will be linked to e.g., C:\Users..\AppData\Local\ESRI\conda\envs\new-environment)
+* Create new environment by cliking Clone (the new environment will be automatically linked to e.g., C:\Users..\AppData\Local\ESRI\conda\envs\new-environment)
 
 ### DataCamp
 https://campus.datacamp.com/courses/intro-to-python-for-data-science/chapter-1-python-basics?ex=5
